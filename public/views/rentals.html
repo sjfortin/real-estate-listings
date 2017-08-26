@@ -2,7 +2,19 @@
     <div class="col-md-12 text-right">
         <form class="form-inline">
             <div class="form-group">
+                <label for="searchListing">Search Listings</label>
                 <input type="text" class="form-control" id="searchListing" placeholder="Search Rentals" ng-model="searchText">
+            </div>
+            <div class="form-group">
+                <label for="orderByColumn">Order By</label>
+                <select name="orderByColumn" id="orderByColumn" ng-model="orderByColumn" class="form-control">
+                    <option value="city">City (Asc)</option>
+                    <option value="-city">City (Desc)</option>
+                    <option value="rent">Rent (Low to High)</option>
+                    <option value="-rent">Rent (High to Low)</option>
+                    <option value="sqft">Square Feet (Low to High)</option>
+                    <option value="-sqft">Square Feet (High to Low)</option>
+                </select>
             </div>
         </form>
     </div>
@@ -23,7 +35,7 @@
             </thead>
             <tbody>
                 <tr ng-repeat="rental in vm.rentals.list">
-                    <tr ng-repeat="rental in filteredListings = (vm.rentals.list | filter:searchText)">
+                    <tr ng-repeat="rental in filteredListings = (vm.rentals.list | filter:searchText | orderBy: orderByColumn)">
                         <td>{{rental.city}}</td>
                         <td>{{rental.rent}}</td>
                         <td>{{rental.sqft}}</td>

@@ -20,4 +20,4 @@ To Do:
 - [ ] Update property feature
 - [ ] Success alert when a new property is added.
 - [x] Search listing feature
-- [ ] Order by listing feature
+- [x] Order by listing feature
