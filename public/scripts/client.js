@@ -13,4 +13,8 @@ app.config(['$routeProvider', function ($routeProvider) {
             templateUrl: 'views/rentals.html',
             controller: 'RentalsController as vm'
         })
+        .when('/add-property', {
+            templateUrl: 'views/add-property.html',
+            controller: 'AddPropertyController as vm'
+        })
 }]);

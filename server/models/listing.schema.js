@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-var listingsSchema = new Schema({
+var listingSchema = new Schema({
     cost: {
         type: Number
     },
@@ -13,4 +13,4 @@ var listingsSchema = new Schema({
     }
 });
 
-module.exports = mongoose.model('Listings', listingsSchema);
+module.exports = mongoose.model('Listing', listingSchema);

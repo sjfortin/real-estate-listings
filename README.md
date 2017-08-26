@@ -15,6 +15,6 @@ To Do (Base Mode):
 
 Hard and Pro Mode
 - [ ] Set up services
-- [ ] Form/View for Adding rentals and listings POST
+- [x] Form/View for Adding rentals and listings POST
 - [ ] Move all ajax requests to angular services
 - [ ] Add update or delete buttons to edit existing listsings

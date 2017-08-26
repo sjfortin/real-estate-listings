@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-var rentalsSchema = new Schema({
+var rentalSchema = new Schema({
     rent: {
         type: Number
     },
@@ -13,4 +13,4 @@ var rentalsSchema = new Schema({
     }
 });
 
-module.exports = mongoose.model('Rentals', rentalsSchema);
+module.exports = mongoose.model('Rental', rentalSchema);

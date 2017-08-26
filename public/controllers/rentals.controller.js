@@ -8,7 +8,7 @@ app.controller('RentalsController', ['$http', function ($http) {
     self.getRentals = function () {
         $http.get('/rentals').then(function (response) {
             self.rentals.list = response.data;
-            console.log('get response: ', self.rentals);
+            console.log('get rentals response: ', self.rentals);
         });
     }
 
