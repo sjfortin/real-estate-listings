@@ -1,0 +1,14 @@
+<div class="row">
+    <div class="col-md-12">
+            <h1>For Sale</h1>
+            <div class="panel panel-default" ng-repeat="listing in vm.listings.list">
+                <div class="panel-heading">
+                    <h3 class="panel-title">{{listing.city}}</h3>
+                </div>
+                <div class="panel-body">
+                    <p>Cost: {{listing.cost}}</p>
+                    <p>Sqaure Feet: {{listing.sqft}}</p>
+                </div>
+            </div>
+    </div>
+</div>

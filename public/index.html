@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Real Estate Listings</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="vendors/bootstrap.min.css" />
+    <link rel="stylesheet" href="styles/style.css">
+
+    <!-- Scripts -->
+    <script src="vendors/angular.js"></script>
+    <script src="vendors/angular-route.js"></script>
+    <script src="scripts/client.js"></script>
+
+    <!-- Controllers -->
+    <script src="controllers/listings.controller.js"></script>
+    <script src="controllers/rentals.controller.js"></script>
+
+    <!-- Services -->
+
+</head>
+
+<body ng-app="RealEstateApp">
+    <div class="nav">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <ul class="logo">
+                        <li>Real Estate Listings</li>
+                    </ul>
+                    <ul class="links">
+                        <li><a href="#!listings">Listings</a></li>
+                        <li><a href="#!rentals">Rentals</a></li>
+                        <li><a href="#!rentals" class="btn btn-sm btn-info">Add Listing or Rental</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="jumbotron">
+                    <h1>Real Estate App</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+    <ng-view></ng-view>
+</body>
+
+</html>
