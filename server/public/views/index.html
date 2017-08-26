@@ -15,14 +15,24 @@
     <!-- Scripts -->
     <script type="text/javascript" src="/vendors/angular.min.js"></script>
     <script type="text/javascript" src="/scripts/client.js"></script>
-    <!-- Controllers go here -->
-    <!-- Services go here -->
-    
+
+    <!-- Controllers -->
+    <script src="scripts/controllers/listings.controller.js" type="text/javascript"></script>
+    <script src="scripts/controllers/rentals.controller.js" type="text/javascript"></script>
+
+    <!-- Services -->
+
 </head>
 
 <body ng-app="RealEstateApp">
-    <div ng-controller="RealEstateController">
-        <h1>Real Estate App</h1>
+    <h1>Real Estate App</h1>
+    <div ng-controller="ListingsController as vm">
+        <h1>Listings</h1>
+        {{vm.listings}}
+    </div>
+    <div ng-controller="RentalsController as vm">
+        <h1>Rentals</h1>
+        {{vm.rentals}}
     </div>
 </body>
 
