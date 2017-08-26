@@ -9,8 +9,9 @@ To Do (Base Mode):
 - [x] Set up controllers
 - [x] Set up client.js
 - [x] Get data on the DOM
-- [ ] Set up views/ng-route
+- [x] Set up views/ng-route
 - [ ] Styling
+- [ ] Order listing by name
 
 Hard and Pro Mode
 - [ ] Set up services
