@@ -7,18 +7,26 @@
 
 .nav ul {
     padding: 0;
+    margin: 0;
     list-style-type: none;
 }
 
-.nav ul.logo {
+.nav ul.links {
     float: left;
 }
 
-.nav ul.links {
+.nav ul.form {
     float: right;
 }
 
 .nav ul.links li {
     display: inline-block;
-    margin-left: 5px;
+}
+
+.nav ul.links li a {
+    margin-right: 10px;
+}
+
+.nav ul.form li {
+    display: inline-block;
 }
