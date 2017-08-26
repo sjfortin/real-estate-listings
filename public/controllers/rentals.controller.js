@@ -10,7 +10,13 @@ app.controller('RentalsController', ['$http', function ($http) {
             self.rentals.list = response.data;
             console.log('get rentals response: ', self.rentals);
         });
-    }
+    };
+
+    self.deleteRental = function (rentalId) {
+        $http.delete('/rentals/' + rentalId).then(function (response) {
+            self.getRentals();
+        })
+    };
 
     self.getRentals();
 

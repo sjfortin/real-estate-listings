@@ -28,4 +28,18 @@ router.post('/', function (req, res) {
     });
 });
 
+router.delete('/:id', function (req, res) {
+
+    Listing.findByIdAndRemove(
+        { _id: req.params.id },
+        function (err, data) {
+            if (err) {
+                console.log('delete error: ', err);
+                res.sendStatus(500);
+            } else {
+                res.sendStatus(200);
+            }
+        });
+});
+
 module.exports = router;

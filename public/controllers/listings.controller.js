@@ -10,7 +10,13 @@ app.controller('ListingsController', ['$http', function ($http) {
             self.listings.list = response.data;
             console.log('get listings response: ', self.listings);
         });
-    }
+    };
+
+    self.deleteListing = function (listingId) {
+        $http.delete('/listings/' + listingId).then(function (response) {
+            self.getListings();
+        })
+    };
 
     self.getListings();
 

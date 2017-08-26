@@ -17,4 +17,5 @@ Hard and Pro Mode
 - [ ] Set up services
 - [x] Form/View for Adding rentals and listings POST
 - [ ] Move all ajax requests to angular services
-- [ ] Add update or delete buttons to edit existing listsings
+- [x] Delete property feature
+- [ ] Update property feature

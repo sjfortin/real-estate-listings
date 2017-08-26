@@ -1,14 +1,26 @@
 <div class="row">
     <div class="col-md-12">
-            <h1>For Sale</h1>
-            <div class="panel panel-default" ng-repeat="listing in vm.listings.list">
-                <div class="panel-heading">
-                    <h3 class="panel-title">{{listing.city}}</h3>
-                </div>
-                <div class="panel-body">
-                    <p>Cost: {{listing.cost}}</p>
-                    <p>Square Feet: {{listing.sqft}}</p>
-                </div>
-            </div>
+        <h1>For Sale</h1>
+        <table class="table table-striped table-responsive">
+            <caption>These properties are available for sale.</caption>
+            <thead>
+                <tr>
+                    <th>City</th>
+                    <th>Cost</th>
+                    <th>Square Feet</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="listing in vm.listings.list">
+                    <td>{{listing.city}}</td>
+                    <td>{{listing.cost}}</td>
+                    <td>{{listing.sqft}}</td>
+                    <td><button ng-click="vm.editProperty()" class="btn btn-primary btn-sm">Update</button></td>
+                    <td><button ng-click="vm.deleteListing(listing._id)" class="btn btn-danger btn-sm">Delete</button></td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </div>
