@@ -2,7 +2,7 @@
 ### Full Stack app: Angular, Node, Express, MongoDB, and Bootstrap
 Author: Sam Fortin
 
-To Do (Base Mode):
+Done:
 - [x] Create basic html view and layout
 - [x] Get express server up and running
 - [x] Set up mongoose routes. Get data from database 
@@ -10,12 +10,13 @@ To Do (Base Mode):
 - [x] Set up client.js
 - [x] Get data on the DOM
 - [x] Set up views/ng-route
-- [ ] Styling
-- [ ] Order listing by name
-
-Hard and Pro Mode
-- [ ] Set up services
 - [x] Form/View for Adding rentals and listings POST
-- [ ] Move all ajax requests to angular services
 - [x] Delete property feature
+
+To Do:
+- [ ] Styling
+- [ ] Set up services
+- [ ] Move all ajax requests to angular services
 - [ ] Update property feature
+- [ ] Success alert when a new property is added.
+- [ ] Order listing by name
