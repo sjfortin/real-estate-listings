@@ -42,4 +42,29 @@ router.delete('/:id', function (req, res) {
         });
 });
 
+router.put('/:id', function (req, res) {
+    var listingId = req.params.id;
+    console.log('this is the new listing', req.body);
+    Listing.findByIdAndUpdate(
+        {
+            _id: listingId
+        },
+        {
+            $set: {
+                cost: req.body.cost,
+                sqft: req.body.sqft,
+                city: req.body.city
+            }
+        },
+        function (err, data) {
+            if (err) {
+                console.log('save error: ', err);
+                res.sendStatus(500);
+            } else {
+                res.sendStatus(200);
+            }
+        }
+    );
+});
+
 module.exports = router;

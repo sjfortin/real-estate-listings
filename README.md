@@ -12,12 +12,12 @@ Done:
 - [x] Set up views/ng-route
 - [x] Form/View for Adding rentals and listings POST
 - [x] Delete property feature
+- [x] Update property feature
+- [x] Search listing feature
+- [x] Order by listing feature
 
 To Do:
 - [ ] Styling
 - [ ] Set up services
 - [ ] Move all ajax requests to angular services
-- [ ] Update property feature
 - [ ] Success alert when a new property is added.
-- [x] Search listing feature
-- [x] Order by listing feature

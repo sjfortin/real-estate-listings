@@ -3,11 +3,11 @@
         <form class="form-inline">
             <div class="form-group">
                 <label for="searchListing">Search Listings</label>
-                <input type="text" class="form-control" id="searchListing" placeholder="Search Rentals" ng-model="searchText">
+                <input type="text" class="form-control" id="searchListing" placeholder="Search Rentals" ng-model="vm.searchText">
             </div>
             <div class="form-group">
                 <label for="orderByColumn">Order By</label>
-                <select name="orderByColumn" id="orderByColumn" ng-model="orderByColumn" class="form-control">
+                <select name="orderByColumn" id="orderByColumn" ng-model="vm.orderByColumn" class="form-control">
                     <option value="city">City (Asc)</option>
                     <option value="-city">City (Desc)</option>
                     <option value="rent">Rent (Low to High)</option>
@@ -30,17 +30,29 @@
                     <th>Cost</th>
                     <th>Square Feet</th>
                     <th></th>
-                    <th></th>
                 </tr>
             </thead>
             <tbody>
                 <tr ng-repeat="rental in vm.rentals.list">
-                    <tr ng-repeat="rental in filteredListings = (vm.rentals.list | filter:searchText | orderBy: orderByColumn)">
+                    <tr ng-repeat="rental in filteredListings = (vm.rentals.list | filter:vm.searchText | orderBy: vm.orderByColumn)" ng-if="!vm.editingMode">
                         <td>{{rental.city}}</td>
                         <td>{{rental.rent}}</td>
                         <td>{{rental.sqft}}</td>
-                        <td><button ng-click="vm.editProperty()" class="btn btn-primary btn-sm">Update</button></td>
-                        <td><button ng-click="vm.deleteRental(rental._id)" class="btn btn-danger btn-sm">Delete</button></td>
+                        <td>
+                            <button ng-click="vm.editProperty(rental._id)" class="btn btn-primary btn-sm">Edit</button>
+                            <button ng-click="vm.deleteRental(rental._id)" class="btn btn-danger btn-sm">Delete</button>
+                        </td>
+                    </tr>
+
+                    <!-- Editing Mode -->
+                    <tr ng-repeat="rental in filteredListings = (vm.rentals.list | filter:vm.searchText) | orderBy: vm.orderByColumn" ng-if="vm.editingMode && vm.rentalToUpdate.id == rental._id">
+                        <td><input type="text" class="form-control" id="updateCity" placeholder="updateCity" ng-model="rental.city"></td>
+                        <td><input type="number" class="form-control" id="updateRent" placeholder="updateRent" ng-model="rental.rent"></td>
+                        <td><input type="number" class="form-control" id="updateSquareFt" placeholder="Square Feet" ng-model="rental.sqft"></td>
+                        <td>
+                            <button ng-click="vm.updateRental(rental._id, rental.city, rental.rent, rental.sqft)" class="btn btn-primary btn-sm">Update</button>
+                            <button ng-click="vm.cancelUpdate()" class="btn btn-default btn-sm">Cancel</button>
+                        </td>
                     </tr>
             </tbody>
         </table>

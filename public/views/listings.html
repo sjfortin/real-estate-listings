@@ -3,11 +3,11 @@
         <form class="form-inline">
             <div class="form-group">
                 <label for="searchListing">Search Listings</label>
-                <input type="text" class="form-control" id="searchListing" placeholder="Search Listings" ng-model="searchText">
+                <input type="text" class="form-control" id="searchListing" placeholder="Search Listings" ng-model="vm.searchText">
             </div>
             <div class="form-group">
                 <label for="orderByColumn">Order By</label>
-                <select name="orderByColumn" id="orderByColumn" ng-model="orderByColumn" class="form-control">
+                <select name="orderByColumn" id="orderByColumn" ng-model="vm.orderByColumn" class="form-control">
                     <option value="city">City (Asc)</option>
                     <option value="-city">City (Desc)</option>
                     <option value="cost">Cost (Low to High)</option>
@@ -30,16 +30,28 @@
                     <th>Cost</th>
                     <th>Square Feet</th>
                     <th></th>
-                    <th></th>
                 </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="listing in filteredListings = (vm.listings.list | filter:searchText) | orderBy: orderByColumn">
+                <tr ng-repeat="listing in filteredListings = (vm.listings.list | filter:vm.searchText) | orderBy: vm.orderByColumn" ng-if="!vm.editingMode">
                     <td>{{listing.city}}</td>
                     <td>{{listing.cost}}</td>
                     <td>{{listing.sqft}}</td>
-                    <td><button ng-click="vm.editProperty()" class="btn btn-primary btn-sm">Update</button></td>
-                    <td><button ng-click="vm.deleteListing(listing._id)" class="btn btn-danger btn-sm">Delete</button></td>
+                    <td>
+                        <button ng-click="vm.editListing(listing._id)" class="btn btn-primary btn-sm">Edit</button>
+                        <button ng-click="vm.deleteListing(listing._id)" class="btn btn-danger btn-sm">Delete</button>
+                    </td>
+                </tr>
+
+                <!-- Editing Mode -->
+                <tr ng-repeat="listing in filteredListings = (vm.listings.list | filter:vm.searchText) | orderBy: vm.orderByColumn" ng-if="vm.editingMode && vm.listingToUpdate.id == listing._id">
+                    <td><input type="text" class="form-control" id="updateCity" placeholder="updateCity" ng-model="listing.city"></td>
+                    <td><input type="number" class="form-control" id="updateCost" placeholder="updateCost" ng-model="listing.cost"></td>
+                    <td><input type="number" class="form-control" id="updateSquareFt" placeholder="Square Feet" ng-model="listing.sqft"></td>
+                    <td>
+                        <button ng-click="vm.updateListing(listing._id, listing.city, listing.cost, listing.sqft)" class="btn btn-primary btn-sm">Update</button>
+                        <button ng-click="vm.cancelUpdate()" class="btn btn-default btn-sm">Cancel</button>
+                    </td>
                 </tr>
             </tbody>
         </table>
