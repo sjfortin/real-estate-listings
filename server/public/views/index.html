@@ -25,14 +25,61 @@
 </head>
 
 <body ng-app="RealEstateApp">
-    <h1>Real Estate App</h1>
-    <div ng-controller="ListingsController as vm">
-        <h1>Listings</h1>
-        {{vm.listings}}
+    <div class="nav">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <ul class="logo">
+                        <li>Real Estate Listings</li>
+                    </ul>
+                    <ul class="links">
+                        <li><a href="#!listings">Listings</a></li>
+                        <li><a href="#!rentals">Rentals</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </div>
-    <div ng-controller="RentalsController as vm">
-        <h1>Rentals</h1>
-        {{vm.rentals}}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="jumbotron">
+                    <h1>Real Estate App</h1>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div ng-controller="ListingsController as vm">
+                    <h1>Listings</h1>
+                    <div class="panel panel-default" ng-repeat="listing in vm.listings.list">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">{{listing.city}}</h3>
+                        </div>
+                        <div class="panel-body">
+                            <p>Cost: {{listing.cost}}</p>
+                            <p>Sqaure Feet: {{listing.sqft}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div ng-controller="RentalsController as vm">
+                    <h1>Rentals</h1>
+                    <div class="panel panel-default" ng-repeat="rental in vm.rentals.list">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">{{rental.city}}</h3>
+                        </div>
+                        <div class="panel-body">
+                            <p>Rent: {{rental.rent}}</p>
+                            <p>Square Feet: {{rental.sqft}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 

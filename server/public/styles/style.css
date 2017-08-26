@@ -1,0 +1,24 @@
+.nav {
+    overflow: hidden;
+    padding: 20px 0;
+    background: #ddd;
+    margin-bottom: 20px;
+}
+
+.nav ul {
+    padding: 0;
+    list-style-type: none;
+}
+
+.nav ul.logo {
+    float: left;
+}
+
+.nav ul.links {
+    float: right;
+}
+
+.nav ul.links li {
+    display: inline-block;
+    margin-left: 5px;
+}
