@@ -1,24 +1,17 @@
-app.controller('RentalsController', function () {
+app.controller('RentalsController', ['$http', function ($http) {
     var self = this;
 
     self.rentals = {
-        list: [
-            {
-                "_id": '58de9678d0c1cb22fbcb2659',
-                "rent": 31500,
-                "sqft": 2100,
-                "city": "St. Joseph",
-                "__v": 0
-            },
-
-            /* 2 */
-            {
-                "_id": '58de9674d0c1cb22fbcb2656',
-                "rent": 18000,
-                "sqft": 600,
-                "city": "Victoria",
-                "__v": 0
-            }
-        ]
+        list: []
     }
-});
+
+    self.getRentals = function () {
+        $http.get('/rentals').then(function (response) {
+            self.rentals.list = response.data;
+            console.log('get response: ', self.rentals);
+        });
+    }
+
+    self.getRentals();
+
+}]);

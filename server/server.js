@@ -4,18 +4,18 @@ var bodyParser = require('body-parser');
 var path = require('path');
 var index = require('./routes/index.js');
 var listings = require('./routes/listings.js');
-// var rentals = require('./routes/rentals.js');
+var rentals = require('./routes/rentals.js');
 
 var mongoose = require('mongoose');
 
 // Middleware
 app.use(express.static(path.join(__dirname, './public')));
-app.use(bodyParser.json()); // needed for angular requests
+app.use(bodyParser.json());
 
 // Express Routes
 app.use('/', index);
 app.use('/listings', listings);
-// app.use('/rentals', rentals);
+app.use('/rentals', rentals);
 
 // Connection
 var databaseUrl = 'mongodb://localhost:27017/realestate';
