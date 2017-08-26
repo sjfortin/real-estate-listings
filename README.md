@@ -19,4 +19,5 @@ To Do:
 - [ ] Move all ajax requests to angular services
 - [ ] Update property feature
 - [ ] Success alert when a new property is added.
-- [ ] Order listing by name
+- [x] Search listing feature
+- [ ] Order by listing feature
