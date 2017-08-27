@@ -1,60 +1,42 @@
-app.controller('ListingsController', ['$http', function ($http) {
+app.controller('ListingsController', ['ListingService', function (ListingService) {
     var self = this;
 
-    self.listings = {
-        list: []
-    }
-
-    self.editingMode = false;
+    self.listings = ListingService.listings;
     self.listingToUpdate = {};
-
     self.orderByColumn = 'city';
 
-    self.getListings = function () {
-        $http.get('/listings').then(function (response) {
-            self.listings.list = response.data;
-            console.log('get listings response: ', self.listings);
-        });
-    };
+    // Initial GET request
+    ListingService.getListings();
 
+    // DELETE call to Listing Service
     self.deleteListing = function (listingId) {
-        $http.delete('/listings/' + listingId).then(function (response) {
-            self.getListings();
-        })
+        ListingService.deleteListing(listingId);
     };
 
+    // PUT call to Listing Service
     self.editListing = function (listingId) {
         self.editingMode = true;
         self.listingToUpdate.id = listingId;
-        self.searchText = '';
-    }
+        self.searchText = '';        
+    };
 
+    // POST call to Listing Service
     self.updateListing = function (id, city, cost, sqft) {
 
-        console.log('this is the listing to update', id, city, cost, sqft);
-
-        currentListing = {
+        self.currentListing = {
             cost: cost,
             sqft: sqft,
             city: city
-        }
+        };
 
-        console.log('this is what it should update to', currentListing);
+        ListingService.updateListing(id, self.currentListing);
+        self.editingMode = false;
+    };
 
-
-        $http.put('/listings/' + id, currentListing)
-            .then(function (response) {
-                currentListing = {};
-                self.editingMode = false;
-                self.getListings();
-            });
-    }
-
+    // Cancel editing mode
     self.cancelUpdate = function () {
         self.editingMode = false;
-        self.getListings();
-    }
-
-    self.getListings();
+        ListingService.getListings();
+    };
 
 }]);

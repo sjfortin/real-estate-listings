@@ -18,6 +18,5 @@ Done:
 
 To Do:
 - [ ] Styling
-- [ ] Set up services
 - [ ] Move all ajax requests to angular services
 - [ ] Success alert when a new property is added.

@@ -27,7 +27,7 @@
             <thead>
                 <tr>
                     <th>City</th>
-                    <th>Cost</th>
+                    <th>Rent</th>
                     <th>Square Feet</th>
                     <th></th>
                 </tr>
@@ -39,7 +39,7 @@
                         <td>{{rental.rent}}</td>
                         <td>{{rental.sqft}}</td>
                         <td>
-                            <button ng-click="vm.editProperty(rental._id)" class="btn btn-primary btn-sm">Edit</button>
+                            <button ng-click="vm.editRental(rental._id)" class="btn btn-primary btn-sm">Edit</button>
                             <button ng-click="vm.deleteRental(rental._id)" class="btn btn-danger btn-sm">Delete</button>
                         </td>
                     </tr>

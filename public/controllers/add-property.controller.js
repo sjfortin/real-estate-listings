@@ -1,19 +1,15 @@
-app.controller('AddPropertyController', ['$http', function ($http) {
+app.controller('AddPropertyController', ['ListingService', 'RentalService',  function (ListingService, RentalService) {
     var self = this;
 
-    self.newProperty = {}
+    self.newProperty = {};
 
     self.addProperty = function () {
         if (self.newProperty.saleOrRental === 'sale') {
-            $http.post('/listings', self.newProperty).then(function (response) {
-                self.newProperty = {};
-                console.log('post response:', response);
-            });
+            ListingService.addProperty(self.newProperty);
+            self.newProperty = {};
         } else {
-            $http.post('/rentals', self.newProperty).then(function (response) {
-                self.newProperty = {};
-                console.log('post response:', response);
-            });
+            RentalService.addProperty(self.newProperty);
+            self.newProperty = {};
         }
     }
 
