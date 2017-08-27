@@ -15,8 +15,8 @@ Done:
 - [x] Update property feature
 - [x] Search listing feature
 - [x] Order by listing feature
+- [x] Move all ajax requests to angular services
 
 To Do:
 - [ ] Styling
-- [ ] Move all ajax requests to angular services
 - [ ] Success alert when a new property is added.
