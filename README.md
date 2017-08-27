@@ -20,3 +20,4 @@ Done:
 - [x] Styling
 
 To Do:
+- [ ] Are you sure on the delete function

@@ -64,6 +64,10 @@ body {
     color: #fff;
 }
 
+.main-content {
+    margin-bottom: 60px;
+}
+
 a.listing-img {
     display: block;
 }
