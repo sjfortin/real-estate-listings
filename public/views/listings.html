@@ -22,7 +22,7 @@
 <div class="row">
     <div class="col-md-12">
         <h1>For Sale</h1>
-        <table class="table table-striped table-responsive">
+        <table class="table table-striped table-responsive" ng-if="!vm.editingMode">
             <caption>These properties are available for sale.</caption>
             <thead>
                 <tr>
@@ -33,29 +33,42 @@
                 </tr>
             </thead>
             <tbody>
-                <tr ng-repeat="listing in filteredListings = (vm.listings.list | filter:vm.searchText) | orderBy: vm.orderByColumn" ng-if="!vm.editingMode">
+                <tr ng-repeat="listing in filteredListings = (vm.listings.list | filter:vm.searchText) | orderBy: vm.orderByColumn">
                     <td>{{listing.city}}</td>
                     <td>{{listing.cost}}</td>
                     <td>{{listing.sqft}}</td>
                     <td>
-                        <button ng-click="vm.editListing(listing._id)" class="btn btn-primary btn-sm">Edit</button>
+                        <button ng-click="vm.editListing(listing)" class="btn btn-primary btn-sm">Edit</button>
                         <button ng-click="vm.deleteListing(listing._id)" class="btn btn-danger btn-sm">Delete</button>
-                    </td>
-                </tr>
-
-                <!-- Editing Mode -->
-                <tr ng-repeat="listing in filteredListings = (vm.listings.list | filter:vm.searchText) | orderBy: vm.orderByColumn" ng-if="vm.editingMode && vm.listingToUpdate.id == listing._id">
-                    <td><input type="text" class="form-control" id="updateCity" placeholder="updateCity" ng-model="listing.city"></td>
-                    <td><input type="number" class="form-control" id="updateCost" placeholder="updateCost" ng-model="listing.cost"></td>
-                    <td><input type="number" class="form-control" id="updateSquareFt" placeholder="Square Feet" ng-model="listing.sqft"></td>
-                    <td>
-                        <button ng-click="vm.updateListing(listing._id, listing.city, listing.cost, listing.sqft)" class="btn btn-primary btn-sm">Update</button>
-                        <button ng-click="vm.cancelUpdate()" class="btn btn-default btn-sm">Cancel</button>
                     </td>
                 </tr>
             </tbody>
         </table>
         <div ng-if="filteredListings.length === 0">No results</div>
+    </div>
 
+    <!-- Editing Mode -->
+    <div class="col-md-12">
+        <div ng-if="vm.editingMode">
+            <h3>Edit <span class="edit-city-name">{{vm.listingToUpdate.city}}</span> (id: {{vm.listingToUpdate._id}})</h3>
+            <form>
+                <div class="form-group">
+                    <label for="updateCity">Update City</label>
+                    <input type="text" class="form-control" id="updateCity" placeholder="updateCity" ng-model="vm.listingToUpdate.city">
+                </div>
+                <div class="form-group">
+                    <label for="updateCost">Update Cost</label>
+                    <input type="number" class="form-control" id="updateCost" placeholder="updateCost" ng-model="vm.listingToUpdate.cost">
+                </div>
+                <div class="form-group">
+                    <label for="updateSquareFt">Update Square Feet</label>
+                    <input type="number" class="form-control" id="updateSquareFt" placeholder="Square Feet" ng-model="vm.listingToUpdate.sqft">
+                </div>
+
+                <button ng-click="vm.updateListing(vm.listingToUpdate._id, vm.listingToUpdate.city, vm.listingToUpdate.cost, vm.listingToUpdate.sqft)"
+                    class="btn btn-primary btn-sm">Update</button>
+                <button ng-click="vm.cancelUpdate()" class="btn btn-default btn-sm">Cancel</button>
+            </form>
+        </div>
     </div>
 </div>

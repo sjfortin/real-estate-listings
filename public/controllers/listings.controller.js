@@ -14,9 +14,9 @@ app.controller('ListingsController', ['ListingService', function (ListingService
     };
 
     // PUT call to Listing Service
-    self.editListing = function (listingId) {
+    self.editListing = function (listing) {
         self.editingMode = true;
-        self.listingToUpdate.id = listingId;
+        self.listingToUpdate = listing;
         self.searchText = '';        
     };
 

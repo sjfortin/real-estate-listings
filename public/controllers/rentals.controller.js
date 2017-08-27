@@ -11,14 +11,16 @@ app.controller('RentalsController', ['RentalService', function (RentalService) {
         RentalService.deleteRental(rentalId);
     };
 
-    self.editRental = function (rentalId) {
+    self.editRental = function (rental) {
         self.editingMode = true;
-        self.rentalToUpdate.id = rentalId;
+        self.rentalToUpdate = rental;
         self.searchText = '';
     };
 
     self.updateRental = function (id, city, rent, sqft) {
 
+        console.log('this is the rent', rent);
+        
         self.currentRental = {
             rent: rent,
             sqft: sqft,
