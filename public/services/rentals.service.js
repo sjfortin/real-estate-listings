@@ -8,6 +8,11 @@ app.service('RentalService', ['$http', function ($http) {
     self.addProperty = function (newProperty) {
         $http.post('/rentals', newProperty).then(function (response) {
             console.log('post rental response:', response);
+            swal({
+                title: 'Success!',
+                text: 'The rental has been added',
+                type: 'success'
+            })
         });
     };
 

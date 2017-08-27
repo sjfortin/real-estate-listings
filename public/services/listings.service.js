@@ -8,6 +8,11 @@ app.service('ListingService', ['$http', function ($http) {
     self.addProperty = function (newProperty) {
         $http.post('/listings', newProperty).then(function (response) {
             console.log('post listing response:', response);
+            swal({
+                title: 'Success!',
+                text: 'The listing has been added',
+                type: 'success'
+            })
         });
     };
 

@@ -16,7 +16,7 @@ Done:
 - [x] Search listing feature
 - [x] Order by listing feature
 - [x] Move all ajax requests to angular services
+- [x] Success alert when a new property is added.
 
 To Do:
 - [ ] Styling
-- [ ] Success alert when a new property is added.
