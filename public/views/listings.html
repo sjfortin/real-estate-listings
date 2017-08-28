@@ -44,7 +44,7 @@
                 </tr>
             </tbody>
         </table>
-        <div ng-if="filteredListings.length === 0">No results</div>
+        <div ng-if="!(vm.listings.list|filter:vm.searchText).length">No results</div>
     </div>
 
     <!-- Editing Mode -->
