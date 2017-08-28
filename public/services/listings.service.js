@@ -1,4 +1,4 @@
-app.service('ListingService', ['$http', function ($http) {
+app.service('ListingService', ['$http', '$location', function ($http, $location) {
     var self = this;
 
     self.listings = {
@@ -10,9 +10,11 @@ app.service('ListingService', ['$http', function ($http) {
             console.log('post listing response:', response);
             swal({
                 title: 'Success!',
-                text: 'The listing has been added',
+                text: response.config.data.city + ' has been added',
                 type: 'success'
             })
+        }).then(function () {
+            $location.path('/listings');
         });
     };
 

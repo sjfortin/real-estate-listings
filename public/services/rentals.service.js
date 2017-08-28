@@ -1,4 +1,4 @@
-app.service('RentalService', ['$http', function ($http) {
+app.service('RentalService', ['$http', '$location', function ($http, $location) {
     var self = this;
 
     self.rentals = {
@@ -10,9 +10,11 @@ app.service('RentalService', ['$http', function ($http) {
             console.log('post rental response:', response);
             swal({
                 title: 'Success!',
-                text: 'The rental has been added',
+                text: response.config.data.city + ' has been added',
                 type: 'success'
-            })
+            });
+        }).then(function () {
+            $location.path('/rentals');
         });
     };
 
