@@ -1,9 +1,9 @@
 var express = require('express');
 var router = express.Router();
-var Listing = require('../models/listing.schema.js');
+var Sale = require('../models/listing.schema.js');
 
 router.get('/', function (req, res) {
-    Listing.find({}, function (err, data) {
+    Sale.find({}, function (err, data) {
         if (err) {
             console.log('find error: ', err);
             res.sendStatus(500);
@@ -15,7 +15,7 @@ router.get('/', function (req, res) {
 });
 
 router.post('/', function (req, res) {
-    var propertyToAdd = new Listing(req.body);
+    var propertyToAdd = new Sale(req.body);
 
     propertyToAdd.save(function (err, data) {
         if (err) {
@@ -30,7 +30,7 @@ router.post('/', function (req, res) {
 
 router.delete('/:id', function (req, res) {
 
-    Listing.findByIdAndRemove(
+    Sale.findByIdAndRemove(
         { _id: req.params.id },
         function (err, data) {
             if (err) {
@@ -45,7 +45,7 @@ router.delete('/:id', function (req, res) {
 router.put('/:id', function (req, res) {
     var listingId = req.params.id;
     console.log('this is the new listing', req.body);
-    Listing.findByIdAndUpdate(
+    Sale.findByIdAndUpdate(
         {
             _id: listingId
         },

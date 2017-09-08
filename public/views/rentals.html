@@ -1,4 +1,6 @@
-<div class="row">
+<!-- <div ng-include src="'views/new-view.html'"></div> -->
+
+<div class="row" ng-if="!vm.editingMode">
     <div class="col-md-12">
         <form class="form-inline">
             <div class="form-group">
@@ -36,8 +38,8 @@
                 <tr ng-repeat="rental in vm.rentals.list">
                     <tr ng-repeat="rental in filteredListings = (vm.rentals.list | filter:vm.searchText | orderBy: vm.orderByColumn)">
                         <td>{{rental.city}}</td>
-                        <td>{{rental.rent}}</td>
-                        <td>{{rental.sqft}}</td>
+                        <td>{{rental.rent | currency}}</td>
+                        <td>{{rental.sqft | number}}</td>
                         <td>
                             <button ng-click="vm.editRental(rental)" class="btn btn-primary btn-sm">Edit</button>
                             <button ng-click="vm.deleteRental(rental._id)" class="btn btn-danger btn-sm">Delete</button>
@@ -51,27 +53,25 @@
     </div>
 
     <!-- Editing Mode -->
-    <div class="col-md-12">
-        <div ng-if="vm.editingMode">
-            <h3>Edit <span class="edit-city-name">{{vm.rentalToUpdate.city}}</span> (id: {{vm.rentalToUpdate._id}})</h3>
-            <form>
-                <div class="form-group">
-                    <label for="updateCity">Update City</label>
-                    <input type="text" class="form-control" id="updateCity" placeholder="updateCity" ng-model="vm.rentalToUpdate.city">
-                </div>
-                <div class="form-group">
-                    <label for="updateRent">Update Rent</label>
-                    <input type="number" class="form-control" id="updateRent" placeholder="updateRent" ng-model="vm.rentalToUpdate.rent">
-                </div>
-                <div class="form-group">
-                    <label for="updateSquareFt">Update Square Feet</label>
-                    <input type="number" class="form-control" id="updateSquareFt" placeholder="Square Feet" ng-model="vm.rentalToUpdate.sqft">
-                </div>
+    <div class="col-md-12" ng-if="vm.editingMode">
+        <h3>Edit <span class="edit-city-name">{{vm.rentalToUpdate.city}}</span> (id: {{vm.rentalToUpdate._id}})</h3>
+        <form>
+            <div class="form-group">
+                <label for="updateCity">Update City</label>
+                <input type="text" class="form-control" id="updateCity" placeholder="updateCity" ng-model="vm.rentalToUpdate.city">
+            </div>
+            <div class="form-group">
+                <label for="updateRent">Update Rent</label>
+                <input type="number" class="form-control" id="updateRent" placeholder="updateRent" ng-model="vm.rentalToUpdate.rent">
+            </div>
+            <div class="form-group">
+                <label for="updateSquareFt">Update Square Feet</label>
+                <input type="number" class="form-control" id="updateSquareFt" placeholder="Square Feet" ng-model="vm.rentalToUpdate.sqft">
+            </div>
 
-                <button ng-click="vm.updateRental(vm.rentalToUpdate._id, vm.rentalToUpdate.city, vm.rentalToUpdate.rent, vm.rentalToUpdate.sqft)"
-                    class="btn btn-primary btn-sm">Update</button>
-                <button ng-click="vm.cancelUpdate()" class="btn btn-default btn-sm">Cancel</button>
-            </form>
-        </div>
+            <button ng-click="vm.updateRental(vm.rentalToUpdate._id, vm.rentalToUpdate.city, vm.rentalToUpdate.rent, vm.rentalToUpdate.sqft)"
+                class="btn btn-primary btn-sm">Update</button>
+            <button ng-click="vm.cancelUpdate()" class="btn btn-default btn-sm">Cancel</button>
+        </form>
     </div>
 </div>

@@ -17,4 +17,7 @@ app.config(['$routeProvider', function ($routeProvider) {
             templateUrl: 'views/add-property.html',
             controller: 'AddPropertyController as vm'
         })
+        .otherwise({
+            redirectTo: '/'
+        });
 }]);

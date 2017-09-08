@@ -1,16 +1,21 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-var listingSchema = new Schema({
-    cost: {
-        type: Number
+var saleSchema = new Schema(
+    {
+        cost: {
+            type: Number
+        },
+        sqft: {
+            type: Number
+        },
+        city: {
+            type: String
+        }
     },
-    sqft: {
-        type: Number
-    },
-    city: {
-        type: String
+    {
+        collection: 'listings'
     }
-});
+);
 
-module.exports = mongoose.model('Listing', listingSchema);
+module.exports = mongoose.model('Sale', saleSchema);

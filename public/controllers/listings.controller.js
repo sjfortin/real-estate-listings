@@ -1,12 +1,20 @@
 app.controller('ListingsController', ['ListingService', function (ListingService) {
     var self = this;
 
+    // Listings from the GET request in ListingService
     self.listings = ListingService.listings;
+
+    // This will be the listing that was clicked on to edit
     self.listingToUpdate = {};
+
+    // Set the initial order by 
     self.orderByColumn = 'city';
 
     // Initial GET request
     ListingService.getListings();
+
+    console.log('self listings');
+    
 
     // DELETE call to Listing Service
     self.deleteListing = function (listingId) {
@@ -23,13 +31,17 @@ app.controller('ListingsController', ['ListingService', function (ListingService
     // POST call to Listing Service
     self.updateListing = function (id, city, cost, sqft) {
 
+        // Create object to send to the PUT route in the ListingService
         self.currentListing = {
             cost: cost,
             sqft: sqft,
             city: city
         };
 
+        // Call the updateListing function in Listening Service
         ListingService.updateListing(id, self.currentListing);
+
+        // After update, set the editing mode to false
         self.editingMode = false;
     };
 

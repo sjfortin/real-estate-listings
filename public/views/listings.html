@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row" ng-if="!vm.editingMode">
     <div class="col-md-12">
         <form class="form-inline">
             <div class="form-group">
@@ -35,8 +35,8 @@
             <tbody>
                 <tr ng-repeat="listing in filteredListings = (vm.listings.list | filter:vm.searchText) | orderBy: vm.orderByColumn">
                     <td>{{listing.city}}</td>
-                    <td>{{listing.cost}}</td>
-                    <td>{{listing.sqft}}</td>
+                    <td>{{listing.cost | currency}}</td>
+                    <td>{{listing.sqft | number}}</td>
                     <td>
                         <button ng-click="vm.editListing(listing)" class="btn btn-primary btn-sm">Edit</button>
                         <button ng-click="vm.deleteListing(listing._id)" class="btn btn-danger btn-sm">Delete</button>

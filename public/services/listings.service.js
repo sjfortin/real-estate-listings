@@ -1,10 +1,13 @@
 app.service('ListingService', ['$http', '$location', function ($http, $location) {
+    
     var self = this;
 
+    // Init the sale listings as an empty object with a list property
     self.listings = {
         list: []
     };
 
+    // POST 
     self.addProperty = function (newProperty) {
         $http.post('/listings', newProperty).then(function (response) {
             console.log('post listing response:', response);
@@ -21,6 +24,8 @@ app.service('ListingService', ['$http', '$location', function ($http, $location)
     self.getListings = function () {
         $http.get('/listings').then(function (response) {
             self.listings.list = response.data;
+            console.log('service listings', self.listings);
+            
         });
     };
 
