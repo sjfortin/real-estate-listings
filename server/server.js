@@ -17,22 +17,22 @@ app.use(bodyParser.json());
 app.use('/listings', listings);
 app.use('/rentals', rentals);
 
-// var databaseURI = '';
-// // process.env.MONGODB_URI will only be defined if you are running on Heroku
-// if (process.env.MONGODB_URI != undefined) {
-//     // use the string value of the environment variable
-//     databaseURI = process.env.MONGODB_URI;
-// } else {
-//     // use the local database server
-//     databaseURI = 'mongodb://localhost:27017/<dbname>';
-// }
+var databaseURI = '';
+// process.env.MONGODB_URI will only be defined if you are running on Heroku
+if (process.env.MONGODB_URI != undefined) {
+    // use the string value of the environment variable
+    databaseURI = process.env.MONGODB_URI;
+} else {
+    // use the local database server
+    databaseURI = 'mongodb://localhost:27017/realestate';
+}
 
-// mongoose.connect(databaseURI);
+mongoose.connect(databaseURI);
 
 // Mongoose connection
-var databaseUrl = 'mongodb://localhost:27017/realestate';
+// var databaseUrl = 'mongodb://localhost:27017/realestate';
 
-mongoose.connect(databaseUrl, { useMongoClient: true });
+// mongoose.connect(databaseUrl, { useMongoClient: true });
 
 // Optional, but nice to have
 mongoose.connection.on('connected', function () {
