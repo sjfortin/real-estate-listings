@@ -25,6 +25,7 @@ if (process.env.MONGODB_URI != undefined) {
 } else {
     // use the local database server
     databaseURI = 'mongodb://localhost:27017/realestate';
+    databaseURI = 'mongodb://sfortin:1234@ds015334.mlab.com:15334/heroku_cpv005sw';
 }
 
 mongoose.connect(databaseURI);
