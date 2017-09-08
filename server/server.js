@@ -17,9 +17,6 @@ app.use(bodyParser.json());
 app.use('/listings', listings);
 app.use('/rentals', rentals);
 
-var username = process.env.USER_NAME;
-var password = process.env.PASSWORD;
-
 var databaseURI = '';
 // process.env.MONGODB_URI will only be defined if you are running on Heroku
 if (process.env.MONGODB_URI != undefined) {
@@ -27,7 +24,7 @@ if (process.env.MONGODB_URI != undefined) {
     databaseURI = process.env.MONGODB_URI;
 } else {
     // use the local database server
-    databaseURI = 'mongodb://' + username + ':' + password + '@ds127564.mlab.com:27564/heroku_fqrjvtf5';
+    databaseURI = 'mongodb://localhost:27017/realestate';
 }
 
 mongoose.connect(databaseURI);
