@@ -18,6 +18,8 @@ if (process.env.MONGODB_URI != undefined) {
     databaseURI = 'mongodb://localhost:27017/realestate';
 }
 
+mongoose.Promise = global.Promise
+
 mongoose.connect(databaseURI);
 
 
