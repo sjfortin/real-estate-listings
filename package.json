@@ -16,7 +16,7 @@
     "bootstrap": "^3.3.7",
     "express": "^4.15.4",
     "mongodb": "^2.2.31",
-    "mongoose": "^4.11.8",
+    "mongoose": "^4.10.8",
     "sweetalert2": "^6.6.9"
   }
 }
