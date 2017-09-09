@@ -13,9 +13,6 @@ app.controller('ListingsController', ['ListingService', function (ListingService
     // Initial GET request
     ListingService.getListings();
 
-    console.log('self listings');
-    
-
     // DELETE call to Listing Service
     self.deleteListing = function (listingId) {
         ListingService.deleteListing(listingId);
