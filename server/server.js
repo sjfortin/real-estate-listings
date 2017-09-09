@@ -18,19 +18,21 @@ app.use('/listings', listings);
 app.use('/rentals', rentals);
 
 var databaseURI = '';
-// process.env.MONGODB_URI will only be defined if you are running on Heroku
+// process.env.MONGODB_URI will only be defined if you 
+// are running on Heroku
 if (process.env.MONGODB_URI != undefined) {
     // use the string value of the environment variable
     databaseURI = process.env.MONGODB_URI;
 } else {
     // use the local database server
-    // databaseURI = 'mongodb://localhost:27017/realestate';
-    databaseURI = 'mongodb://sfortin:1234@ds015334.mlab.com:15334/heroku_cpv005sw';
+    databaseURI = 'mongodb://localhost:27017/realestate';
 }
 
 mongoose.connect(databaseURI);
 
-// Mongoose connection
+
+// Mongoose connection 
+// Prior to connecting to Heroku mLab
 // var databaseUrl = 'mongodb://localhost:27017/realestate';
 
 // mongoose.connect(databaseUrl, { useMongoClient: true });
