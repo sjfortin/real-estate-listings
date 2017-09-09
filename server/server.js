@@ -7,16 +7,6 @@ var mongoose = require('mongoose');
 var listings = require('./routes/listings.js');
 var rentals = require('./routes/rentals.js');
 
-// Static
-app.use(express.static('public'));
-
-// Body parser
-app.use(bodyParser.json());
-
-// Routing
-app.use('/listings', listings);
-app.use('/rentals', rentals);
-
 var databaseURI = '';
 // process.env.MONGODB_URI will only be defined if you 
 // are running on Heroku
@@ -44,6 +34,16 @@ mongoose.connection.on('connected', function () {
 mongoose.connection.on('error', function (err) {
     // console.log('mongoose connection error to : ', err);
 });
+
+// Static
+app.use(express.static('public'));
+
+// Body parser
+app.use(bodyParser.json());
+
+// Routing
+app.use('/listings', listings);
+app.use('/rentals', rentals);
 
 // server listen
 var port = process.env.PORT || 5000;
