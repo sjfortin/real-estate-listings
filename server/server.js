@@ -20,7 +20,7 @@ if (process.env.MONGODB_URI != undefined) {
 
 mongoose.Promise = global.Promise
 
-mongoose.connect(databaseURI);
+mongoose.connect(databaseURI, { useMongoClient: true });
 
 
 // Mongoose connection 
