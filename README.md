@@ -1,22 +1,14 @@
 # Weekend Challenge #5 - Real Estate Listings
 
-A full stack MEAN app that displays of list of real estate listings, 
+A Prime Digital Academy challenge for creating a full stack MEAN application that displays of list of real estate listings and giving a user the option to add, delete, or edit listings. 
 
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
-### Prerequisites
-
-What things you need to install the software and how to install them
-
-```
-Give examples
-```
-
 ### Installing
 
-Starting by install the dependencies
+Get the app running by first installing the dependencies
 
 ```
 npm install
@@ -27,6 +19,15 @@ To run the app running on localhost:5000
 ```
 npm start
 ```
+
+## Importing the Provided Data File
+
+There is no need to do any initial setup on the database. The following commands will create the **database**, **collections** and **documents** automatically! 
+
+1. Download the *listingData.js* and *rentalData.js* files.
+2. In Terminal, navigate to the folder where you downloaded the above file (or move it to where you want it).
+3. Run this command in your Terminal: `mongoimport --db realestate --collection rentals --file rentalData.js`
+4. Run this command in your Terminal: `mongoimport --db realestate --collection listings --file listingData.js`
 
 ## Built With
 
