@@ -24,8 +24,8 @@ npm start
 
 There is no need to do any initial setup on the database. The following commands will create the **database**, **collections** and **documents** automatically! 
 
-1. Download the *listingData.js* and *rentalData.js* files.
-2. In Terminal, navigate to the folder where you downloaded the above file (or move it to where you want it).
+1. Download the r.
+2. In Terminal, navigate the `server/data` folder so that you have access to the *listingData.js* and *rentalData.js* files.
 3. Run this command in your Terminal: `mongoimport --db realestate --collection rentals --file rentalData.js`
 4. Run this command in your Terminal: `mongoimport --db realestate --collection listings --file listingData.js`
 
