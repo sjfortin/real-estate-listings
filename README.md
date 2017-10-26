@@ -38,6 +38,8 @@ There is no need to do any initial setup on the database. The following commands
 * [MongoDB](https://rometools.github.io/rome/) - Database
 * [Heroku](https://rometools.github.io/rome/) - Used to deply the project
 
+<img src="public/assets/real-estate-listings.png" width="800" />
+
 ## Authors
 
 * **Sam Fortin** - [Github](https://github.com/sjfortin)
