@@ -4,7 +4,7 @@
   "description": "",
   "main": "server/server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test":  "mocha",
     "start": "node server/server.js"
   },
   "author": "",
@@ -20,3 +20,4 @@
     "sweetalert2": "^6.6.9"
   }
 }
+
