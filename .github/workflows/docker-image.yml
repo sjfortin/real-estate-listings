@@ -8,7 +8,7 @@ on:
 
 jobs:
 
-  build:
+  run cypress on docker:
 
     runs-on: ubuntu-latest
 
